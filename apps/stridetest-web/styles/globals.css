@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #092c4c;
+}
+
+table > thead > tr {
+  @apply border-b-1 border-borderGray;
+  box-shadow: none !important;
+}

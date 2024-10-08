@@ -1,0 +1,21 @@
+type Task {
+	id: String
+	description: String
+	createdAt: String
+}
+
+type TaskPage {
+	size: Int
+	content: [Task]
+	lastEvaluatedKey: String
+	numberOfElements: Int
+}
+
+type Query {
+	getTasksPage(pageNumber: Int!, pageSize: Int!): TaskPage
+	getTask(id: String!): Task
+}
+
+type Mutation {
+	createTask(description: String!): Boolean
+}

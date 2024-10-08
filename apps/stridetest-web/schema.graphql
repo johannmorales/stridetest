@@ -1,0 +1,76 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"""Indicates exactly one field must be supplied and this field must not be `null`."""
+directive @oneOf on INPUT_OBJECT
+
+type Customer {
+  email: String
+  id: String
+  name: String
+  photo: String
+}
+
+type CustomerPage {
+  content: [Customer]
+  lastEvaluatedKey: String
+  numberOfElements: Int
+  size: Int
+  totalElemets: Int
+  totalPages: Int
+}
+
+type Deal {
+  address: String
+  area: Float
+  city: String
+  date: String
+  description: String
+  id: String!
+  people: Int
+  price: Float
+  state: String
+  status: String
+  zipCode: String
+}
+
+type DealPage {
+  content: [Deal]
+  lastEvaluatedKey: String
+  numberOfElements: Int
+  size: Int
+  totalElements: Int
+  totalPages: Int
+}
+
+type Mutation {
+  createCustomer(email: String!, name: String!, phoyo: String!): Boolean
+  createDeal(address: String!, area: Float, city: String!, date: String, description: String!, id: String!, people: Int, price: Float, state: String!, zipCode: String!): Boolean
+  createTask(description: String!): Boolean
+}
+
+type Query {
+  getCustomer(id: String!): Customer
+  getCustomersCount: Int
+  getCustomersPage(pageNumber: Int!, pageSize: Int!): CustomerPage
+  getDeal(id: String!): Deal
+  getDealsCount: Int
+  getDealsPage(lastEvaluatedKey: String, pageNumber: Int!, pageSize: Int!): DealPage
+  getTask(id: String!): Task
+  getTasksPage(pageNumber: Int!, pageSize: Int!): TaskPage
+}
+
+type Task {
+  createdAt: String
+  description: String
+  id: String
+}
+
+type TaskPage {
+  content: [Task]
+  lastEvaluatedKey: String
+  numberOfElements: Int
+  size: Int
+}

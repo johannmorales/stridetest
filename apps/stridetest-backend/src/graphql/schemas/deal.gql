@@ -1,0 +1,32 @@
+type Deal {
+	id: String!
+	description: String
+	address: String
+	city: String
+	state: String
+	status: String
+	zipCode: String
+	area: Float
+	people: Int
+	date: String
+	price: Float
+}
+
+type DealPage {
+	size: Int
+	content: [Deal]
+	lastEvaluatedKey: String
+	numberOfElements: Int
+	totalElements: Int
+	totalPages: Int
+}
+
+type Query {
+	getDealsPage(pageNumber: Int!, pageSize: Int!, lastEvaluatedKey: String): DealPage
+	getDeal(id: String!): Deal
+	getDealsCount: Int
+}
+
+type Mutation {
+	createDeal(id: String!, description: String!, address: String!, city: String!, state: String!, zipCode: String!, area: Float, people: Int, date: String, price: Float ): Boolean
+}

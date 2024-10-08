@@ -1,0 +1,41 @@
+{
+  "name": "stridetest-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.12.7",
+    "@types/uuid": "^10.0.0",
+    "gts": "^5.3.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.4.3"
+  },
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc --project tsconfig.prod.json",
+    "fix": "gts fix",
+    "generate": "graphql-codegen"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "@graphql-tools/load-files": "^7.0.0",
+    "@graphql-tools/merge": "^9.0.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-oauth2-jwt-bearer": "^1.6.0",
+    "nanoid": "^5.0.7",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20",
+    "typeorm-dynamodb": "^3.0.43",
+    "uuid": "^10.0.0",
+    "winston": "^3.15.0"
+  }
+}

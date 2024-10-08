@@ -1,0 +1,25 @@
+type Customer {
+	id: String
+	name: String
+	email: String
+	photo: String
+}
+
+type CustomerPage {
+	size: Int
+	content: [Customer]
+	lastEvaluatedKey: String
+	numberOfElements: Int
+	totalElemets: Int
+	totalPages: Int
+}
+
+type Query {
+	getCustomersPage(pageNumber: Int!, pageSize: Int!): CustomerPage
+	getCustomer(id: String!): Customer
+	getCustomersCount: Int
+}
+
+type Mutation {
+	createCustomer(name: String!, email: String!, phoyo: String!): Boolean
+}

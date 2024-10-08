@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.web
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      BACKEND_URL: http://backend:3001
+    command: npm run dev --workspace apps/stridetest-web
+    networks:
+      - backend_network
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.backend
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3001:3001"
+    command: npm run dev --workspace apps/stridetest-backend
+    depends_on:
+      - dynamodb-local
+    networks:
+      - backend_network
+
+  dynamodb-local:
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    volumes:
+      - "./volumes/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
