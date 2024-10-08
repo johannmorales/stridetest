@@ -21,7 +21,7 @@ async function main() {
   app.use('/mock', mockRouter);
   app.use(requestid);
   app.use(logger);
-  // app.use(jwtCheck); // disabled for development / test
+  // app.use(jwtCheck); // disabled for development
 
   app.use(express.json());
   const httpServer = http.createServer(app);
