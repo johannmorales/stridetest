@@ -24,6 +24,12 @@ login with auth0 => google preferibly
 - use production build instead of development mode
 - add catch all route and error route to frontend
 
+## production
+
+- create a docker registry for backend and frontend images
+- run instances using the images in the docker regsitry
+- add a github actions script to update images on each push to master (move development to other branch)
+
 ### Dashboard
 
 ![dashboard](./images/dashboard.png)
