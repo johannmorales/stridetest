@@ -13,7 +13,7 @@ env files in source control for simplicity, in a real scenario we would need to 
 
 ## deployed at
 
---
+- Currently not deployed as local dynamo instance was failing in virtual machine, I didnt want to use a real dynamo db instance because of cost. We can run the project simply by running it with docker
 
 ## next steps
 
