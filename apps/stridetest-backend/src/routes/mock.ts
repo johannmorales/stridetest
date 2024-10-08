@@ -7,7 +7,6 @@ import {v4} from 'uuid';
 export const mockRouter = Router();
 
 mockRouter.get('/', async (req, res) => {
-  req.logger.info('Creating mock data');
   try {
     const customers = [];
     const deals = [];
@@ -22,7 +21,6 @@ mockRouter.get('/', async (req, res) => {
       };
       await getRepository(Customer).put(customer);
       customers.push(customer.id);
-      req.logger.info(`Created customer ${JSON.stringify(customer)}`);
 
       const task = {
         id: v4(),
@@ -31,7 +29,6 @@ mockRouter.get('/', async (req, res) => {
       };
       await getRepository(Task).put(task);
       tasks.push(task.id);
-      req.logger.info(`Created task ${JSON.stringify(task)}`);
 
       const deal = {
         id: v4(),
@@ -48,8 +45,6 @@ mockRouter.get('/', async (req, res) => {
       };
       await getRepository(Deal).put(deal);
       deals.push(deal.id);
-
-      req.logger.info(`Created deal ${JSON.stringify(deal)}`);
     }
     res.status(200).json({customers, tasks, deals});
   } catch (error) {

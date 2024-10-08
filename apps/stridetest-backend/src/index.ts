@@ -18,12 +18,12 @@ async function main() {
   const app = express();
 
   app.use(db);
+  app.use(express.json());
   app.use(requestid);
   app.use(logger);
   app.use('/mock', mockRouter);
   // app.use(jwtCheck); // disabled for development
 
-  app.use(express.json());
   const httpServer = http.createServer(app);
 
   const server = new ApolloServer<GraphQlRequestContext>({
