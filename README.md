@@ -34,4 +34,4 @@ login with auth0 => google preferibly
 
 ### login
 
-![dashboard](./images/login.png)
+![dashboard](./images/auth0.png)
